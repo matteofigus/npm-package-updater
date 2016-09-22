@@ -1,6 +1,6 @@
 'use strict';
 
-const github = new require('github')({
+let github = new require('github')({
     protocol: 'https',
     host: 'api.github.com',
     headers: {
