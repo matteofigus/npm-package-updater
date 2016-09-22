@@ -1,0 +1,17 @@
+---
+"extends":
+  - "defaults"
+
+"rules":
+  "arrow-parens": ["error", "always"]
+  "no-var": "error"
+  "no-console": 2
+  "object-shorthand": ["error", "properties"]
+  "prefer-arrow-callback": "error"
+  "strict": 1
+  "quotes": [1, "single", { "allowTemplateLiterals": true }]
+
+"env":
+  "es6": true
+  "mocha": true
+  "node": true
