@@ -1,0 +1,37 @@
+{
+  "name": "npm-package-updater",
+  "version": "0.0.1-alpha",
+  "description": "app that checks node projects for potential dependency upgrades and issues upgrade pull requests",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/opentable/npm-package-updater"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node src/app.js",
+    "lint": "eslint ./",
+    "mocha": "mocha tests --recursive --timeout 15000 --reporter ${MOCHA_REPORTER:-spec}",
+    "test": "npm run lint && npm run mocha"
+  },
+  "keywords": [],
+  "author": "azokas@opentable.com",
+  "bugs": {
+    "url": "https://github.com/opentable/npm-package-updater/issues"
+  },
+  "homepage": "https://github.com/opentable/npm-package-updater",
+  "devDependencies": {
+    "eslint": "^3.5.0",
+    "eslint-config-defaults": "^9.0.0",
+    "mocha": "^3.0.2"
+  },
+  "dependencies": {
+    "async": "^2.0.1",
+    "deepcopy": "^0.6.3",
+    "github": "^3.1.0",
+    "npm": "^3.10.7",
+    "request": "^2.75.0",
+    "semver": "^5.3.0",
+    "semver-utils": "^1.1.1",
+    "underscore": "^1.8.3"
+  }
+}
