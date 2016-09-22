@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node src/app.js",
     "lint": "eslint ./",
-    "mocha": "mocha tests --recursive --slow 100 --timeout 15000 --reporter ${MOCHA_REPORTER:-spec}",
+    "mocha": "mocha tests --recursive --slow 2500 --timeout 10000 --reporter ${MOCHA_REPORTER:-spec}",
     "test": "npm run lint && npm run mocha"
   },
   "keywords": [],
