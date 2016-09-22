@@ -5,7 +5,7 @@
 "rules":
   "arrow-parens": ["error", "always"]
   "no-var": "error"
-  "no-console": 2
+  "no-console": 1
   "object-shorthand": ["error", "properties"]
   "prefer-arrow-callback": "error"
   "strict": 1
