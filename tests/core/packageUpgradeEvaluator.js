@@ -4,7 +4,7 @@ const expect                  = require('expect.js');
 const rewire                  = require('rewire');
 const packageUpgradeEvaluator = rewire('../../src/core/packageUpgradeEvaluator');
 
-describe.only('packageUpgradeEvaluator', () => {
+describe('packageUpgradeEvaluator', () => {
     describe('getUpgradeRecommendation', () => {
         describe('given package name and version range and package has upgrade available', () => {
             let upgradeRecommendation;
@@ -16,7 +16,7 @@ describe.only('packageUpgradeEvaluator', () => {
                 packageUpgradeEvaluator.__set__('npmService', {
                     getLatestVersionNumber: (packageName, cb) => {
                         expect(packageName).to.be('test-package');
-                        cb(null, '2.0.1');
+                        return cb(null, '2.0.1');
                     }
                 });
 
@@ -67,5 +67,7 @@ describe.only('packageUpgradeEvaluator', () => {
                 next();
             });
         });
+
+        // TODO: test error path
     });
 });
