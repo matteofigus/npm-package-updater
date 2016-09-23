@@ -8,7 +8,7 @@ describe('githubService', () => {
     describe('getFileContent', () => {
         describe('given options and file path', () => {
             it('should return file', (next) => {
-                const options = { apiToken: 'secret_token', repo: { user: 'opentable', name: 'npm-package-updater' } };
+                const options = { apiToken: 'secret_token', repository: { user: 'opentable', name: 'npm-package-updater' } };
                 const path = 'package.json';
 
                 githubService.__set__('github', {
@@ -39,7 +39,7 @@ describe('githubService', () => {
 
         describe('given options and non-existent file path', () => {
             it('should return error', (next) => {
-                const options = { apiToken: 'secret_token', repo: { user: 'opentable', name: 'npm-package-updater' } };
+                const options = { apiToken: 'secret_token', repository: { user: 'opentable', name: 'npm-package-updater' } };
                 const path = '/its.a.trap';
 
                 githubService.__set__('github', {

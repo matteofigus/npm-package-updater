@@ -17,7 +17,7 @@ module.exports = {
             token: options.apiToken
         });
 
-        github.repos.getContent({ user: options.repo.user, repo: options.repo.name, path }, (err, file) => {
+        github.repos.getContent({ user: options.repository.user, repo: options.repository.name, path }, (err, file) => {
             if (err) {
                 return next(err, null);
             }
