@@ -24,25 +24,37 @@ describe('npmPackageUpdater', () => {
                     getFileContent: (options, path, cb) => {
                         if (options.repository.name === 'repo-1') {
                             return cb(null, {
-                                dependencies: [
-                                    { dep1: '^1.0.0' },
-                                    { dep2: '^1.0.0' },
-                                    { dep3: '^1.0.0' }
-                                ],
-                                devDependencies: [
-                                    { dep1: '^1.0.0' },
-                                    { dep2: '^1.0.0' },
-                                    { dep3: '^1.0.0' }
-                                ]
+                                sha: 'e84a830d4427c06c82ec30fa60873fc67470f641',
+                                encoding: 'base64',
+                                content: {
+                                    dependencies: [
+                                        { dep1: '^1.0.0' },
+                                        { dep2: '^1.0.0' },
+                                        { dep3: '^1.0.0' }
+                                    ],
+                                    devDependencies: [
+                                        { dep1: '^1.0.0' },
+                                        { dep2: '^1.0.0' },
+                                        { dep3: '^1.0.0' }
+                                    ]
+                                },
+                                trailingNewline: '\n',
+                                indentSize: 2
                             });
                         } else {
                             return cb(null, {
-                                dependencies: [
-                                    { dep1: '^1.0.0' }
-                                ],
-                                devDependencies: [
-                                    { dep1: '^1.0.0' }
-                                ]
+                                sha: 'e84a830d4427c06c82ec30fa60873fc67470f641',
+                                encoding: 'base64',
+                                content: {
+                                    dependencies: [
+                                        { dep1: '^1.0.0' }
+                                    ],
+                                    devDependencies: [
+                                        { dep1: '^1.0.0' }
+                                    ]
+                                },
+                                trailingNewline: '\n',
+                                indentSize: 2
                             });
                         }
                     }

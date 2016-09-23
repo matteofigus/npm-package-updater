@@ -7,8 +7,8 @@ let packageUpgradeEvaluator = require('./core/packageUpgradeEvaluator');
 module.exports = {
     run: (options, next) => {
         async.map(options.repositories, (repository, repositoryNext) => {
-            githubService.getFileContent({ apiToken: options.apiToken, repository: { user: repository.user, name: repository.name }}, 'package.json', (err, file) => {
-                const dependencies = file.dependencies.map((dependency) => { return { packageName: Object.keys(dependency)[0], versionRange: dependency[Object.keys(dependency)[0]] }; });
+            githubService.getFileContent({ apiToken: options.apiToken, repository: { user: repository.user, name: repository.name }}, 'package.json', (err, fileDescriptor) => {
+                const dependencies = fileDescriptor.content.dependencies.map((dependency) => { return { packageName: Object.keys(dependency)[0], versionRange: dependency[Object.keys(dependency)[0]] }; });
 
                 async.map(dependencies, (dependency, dependencyNext) => {
                     packageUpgradeEvaluator.getUpgradeRecommendation(dependency.packageName, dependency.versionRange, (err, upgradeRecommendation) => {
@@ -26,7 +26,7 @@ module.exports = {
                         return repositoryNext(err, null);
                     }
 
-                    const devDependencies = file.devDependencies.map((devDependency) => { return { packageName: Object.keys(devDependency)[0], versionRange: devDependency[Object.keys(devDependency)[0]] }; });
+                    const devDependencies = fileDescriptor.content.devDependencies.map((devDependency) => { return { packageName: Object.keys(devDependency)[0], versionRange: devDependency[Object.keys(devDependency)[0]] }; });
 
                     async.map(devDependencies, (devDependency, devDependencyNext) => {
                         packageUpgradeEvaluator.getUpgradeRecommendation(devDependency.packageName, devDependency.versionRange, (err, upgradeRecommendation) => {
