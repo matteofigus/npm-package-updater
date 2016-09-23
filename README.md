@@ -1,2 +1,2 @@
 # npm-package-updater
-app that checks node projects for potential dependency upgrades and issues upgrade pull requests
+package for checking node projects for potential dependency upgrades and issuing upgrade pull requests
